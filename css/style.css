@@ -335,12 +335,12 @@ footer .copy-line{margin-top:2.5rem;padding-top:1.6rem;border-top:1px solid rgba
 @media (max-width:600px){.p-stats{grid-template-columns:1fr}}
 
 /* people */
-.carousel{position:relative;overflow:hidden;background:#0b2342;aspect-ratio:2100/1369;max-height:78vh;width:100%}
+.carousel{position:relative;overflow:hidden;background:#0b2342;aspect-ratio:3/2;width:min(100%,calc(82vh * 1.5));margin-inline:auto}
 .carousel .slide{position:absolute;inset:0;opacity:0;transition:opacity .9s}
 .carousel .slide.on{opacity:1}
 .carousel .slide img,.carousel .slide svg{width:100%;height:100%;object-fit:cover;display:block}
 .carousel .ph{display:grid;place-items:center;height:100%;color:rgba(255,255,255,.7);font-family:var(--f-cond);letter-spacing:.1em;text-transform:uppercase;font-size:.85rem;background:repeating-linear-gradient(135deg,#0b2342 0 18px,#0d2a4e 18px 36px)}
-.carousel .cap{position:absolute;left:0;right:0;bottom:0;padding:1rem var(--gutR) 1.1rem var(--gut);background:linear-gradient(transparent,rgba(0,0,0,.75));display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap}
+.carousel .cap{position:absolute;left:0;right:0;bottom:0;padding:1rem clamp(1rem,2vw,1.6rem) 1.1rem;background:linear-gradient(transparent,rgba(0,0,0,.75));display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap}
 .carousel .cap span{font-size:.8em;color:#fff}
 .c-ctrl{display:flex;gap:.5rem;align-items:center}
 .c-ctrl button{width:40px;height:40px;border-radius:50%;border:1.5px solid #fff;background:rgba(0,0,0,.25);cursor:pointer}
@@ -513,10 +513,10 @@ a.ref:hover{border-color:var(--accent);background:rgba(215,94,52,.15)}
 .news-page .n-card .more{color:#005585}
 .n-card .thumb{aspect-ratio:1/1}
 .nbox{position:fixed;inset:0;z-index:200;background:rgba(4,14,26,.82);display:grid;place-items:center;padding:clamp(10px,3vw,40px);animation:lbin .25s ease}
-.nb-in{position:relative;background:#fff;color:#1a1a1a;width:min(1080px,100%);max-height:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.nb-in{position:relative;background:#fff;color:#1a1a1a;width:min(1080px,100%);height:min(100%,860px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);grid-template-rows:minmax(0,1fr);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
 .nb-img{background:#0b2342;display:flex;align-items:center;justify-content:center;min-height:0}
-.nb-img img{width:100%;height:100%;max-height:calc(100vh - 80px);object-fit:contain;display:block}
-.nb-txt{padding:clamp(1.4rem,3vw,2.6rem);overflow:auto;max-height:calc(100vh - 80px)}
+.nb-img img{width:100%;height:100%;object-fit:contain;display:block}
+.nb-txt{padding:clamp(1.4rem,3vw,2.6rem);overflow-y:auto;min-height:0;height:100%;box-sizing:border-box;overscroll-behavior:contain}
 .nb-meta{display:flex;gap:.7rem;align-items:center;font-family:var(--f-cond);font-weight:600;letter-spacing:.06em;color:#c4552d;font-size:.85rem}
 .nb-meta .src{background:#0d1a28;color:#fff;padding:.1rem .5rem;font-size:.7rem;text-transform:uppercase}
 .nb-txt h3{color:#111;font-size:clamp(24px,2.2vw,32px);font-weight:600;margin:.7rem 0 1.1rem}
@@ -524,7 +524,7 @@ a.ref:hover{border-color:var(--accent);background:rgba(215,94,52,.15)}
 .nb-body .htag{color:#005585}
 .nb-txt .btn{margin-top:.8rem}
 .nb-x{position:absolute;top:.5rem;right:.6rem;z-index:2;width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,255,255,.92);font-size:26px;line-height:1;cursor:pointer;color:#111}
-@media (max-width:800px){.nb-in{grid-template-columns:1fr;overflow:auto}.nb-txt{max-height:none;overflow:visible}.nb-img img{height:auto;max-height:55vh}.nb-img{flex:none}}
+@media (max-width:800px){.nb-in{grid-template-columns:1fr;grid-template-rows:auto;height:auto;max-height:100%;overflow-y:auto}.nb-txt{height:auto;overflow:visible}.nb-img img{height:auto;max-height:55vh}.nb-img{flex:none}}
 .brand .brand-ko{display:none;font-family:"Noto Sans KR",system-ui,sans-serif;text-transform:none;letter-spacing:0;line-height:1.35;font-weight:500;font-size:clamp(11px,.82vw,13px);color:rgba(255,255,255,.88);white-space:nowrap;padding-left:.15rem}
 .brand .brand-ko b{display:block;font-size:1.12em;font-weight:700;color:#fff}
 html[lang="ko"] .brand .brand-ko{display:block}
