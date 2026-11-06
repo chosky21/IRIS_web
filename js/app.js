@@ -478,7 +478,7 @@ const IG_URL="https://www.instagram.com/iris.unist/", LI_URL="https://www.linked
 const POSTLIST=(()=>{
   const A=x=>Array.isArray(x)?x:[], man=typeof POSTS!=="undefined"?A(POSTS):[], ig=typeof IG_POSTS!=="undefined"?A(IG_POSTS):[];
   const seen=new Set(), out=[];
-  [...man,...ig].forEach(p=>{ if(!p||!p.url) return; const k=p.url.split("?")[0].replace(/\/$/,""); if(seen.has(k)) return; seen.add(k); out.push({...p,src:p.src||(/linkedin\.com/.test(p.url)?"linkedin":"instagram")}); });
+  [...man,...ig].forEach(p=>{ if(!p||!p.url) return; const k=p.url.replace(/[?&]utm_[^#]*/,"").replace(/\/$/,""); if(seen.has(k)) return; seen.add(k); out.push({...p,src:p.src||(/linkedin\.com/.test(p.url)?"linkedin":"instagram")}); });
   return out.sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));})();
 function liEmbed(u){ const m=u.match(/urn:li:(activity|share|ugcPost):(\d+)/)||u.match(/(activity|share|ugcPost)[-:](\d{10,})/); return m?`https://www.linkedin.com/embed/feed/update/urn:li:${m[1]}:${m[2]}`:null; }
 function postCard(p){
