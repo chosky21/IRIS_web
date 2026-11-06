@@ -512,3 +512,20 @@ a.ref:hover{border-color:var(--accent);background:rgba(215,94,52,.15)}
 .n-card p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .news-page .n-card .more{color:#005585}
 .n-card .thumb{aspect-ratio:1/1}
+.nbox{position:fixed;inset:0;z-index:200;background:rgba(4,14,26,.82);display:grid;place-items:center;padding:clamp(10px,3vw,40px);animation:lbin .25s ease}
+.nb-in{position:relative;background:#fff;color:#1a1a1a;width:min(1080px,100%);max-height:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.nb-img{background:#0b2342;display:flex;align-items:center;justify-content:center;min-height:0}
+.nb-img img{width:100%;height:100%;max-height:calc(100vh - 80px);object-fit:contain;display:block}
+.nb-txt{padding:clamp(1.4rem,3vw,2.6rem);overflow:auto;max-height:calc(100vh - 80px)}
+.nb-meta{display:flex;gap:.7rem;align-items:center;font-family:var(--f-cond);font-weight:600;letter-spacing:.06em;color:#c4552d;font-size:.85rem}
+.nb-meta .src{background:#0d1a28;color:#fff;padding:.1rem .5rem;font-size:.7rem;text-transform:uppercase}
+.nb-txt h3{color:#111;font-size:clamp(24px,2.2vw,32px);font-weight:600;margin:.7rem 0 1.1rem}
+.nb-body p{font-size:15px;line-height:1.65;margin:0 0 .9rem;color:#333}
+.nb-body .htag{color:#005585}
+.nb-txt .btn{margin-top:.8rem}
+.nb-x{position:absolute;top:.5rem;right:.6rem;z-index:2;width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,255,255,.92);font-size:26px;line-height:1;cursor:pointer;color:#111}
+@media (max-width:800px){.nb-in{grid-template-columns:1fr;overflow:auto}.nb-txt{max-height:none;overflow:visible}.nb-img img{height:auto;max-height:55vh}.nb-img{flex:none}}
+.brand .brand-ko{display:none;font-family:"Noto Sans KR",system-ui,sans-serif;text-transform:none;letter-spacing:0;line-height:1.35;font-weight:500;font-size:clamp(11px,.82vw,13px);color:rgba(255,255,255,.88);white-space:nowrap;padding-left:.15rem}
+.brand .brand-ko b{display:block;font-size:1.12em;font-weight:700;color:#fff}
+html[lang="ko"] .brand .brand-ko{display:block}
+@media (max-width:600px){html[lang="ko"] .brand .brand-ko{display:none}}
