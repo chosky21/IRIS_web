@@ -1,0 +1,54 @@
+name: Sync Instagram posts to Lab News
+
+on:
+  schedule:
+    - cron: "0 21 * * *"   # every day 06:00 KST
+  workflow_dispatch:        # "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      HAS_PAT: ${{ secrets.GH_PAT != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch Instagram posts
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: python scripts/fetch_instagram.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/ig-posts.js assets/news
+          if git diff --cached --quiet; then
+            echo "No new posts"
+          else
+            git commit -m "Lab News: sync Instagram posts"
+            git push
+          fi
+
+      # Optional: keeps the 60-day Instagram token alive.
+      # Needs a second secret GH_PAT (fine-grained token with "Secrets: read and write" on this repo).
+      - name: Refresh Instagram token
+        if: env.HAS_PAT == 'true'
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          NEW=$(curl -s "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${IG_TOKEN}" | python -c "import sys,json;print(json.load(sys.stdin).get('access_token',''))")
+          if [ -n "$NEW" ]; then
+            echo "$NEW" | GH_TOKEN="$GH_PAT" gh secret set IG_TOKEN --repo "$GITHUB_REPOSITORY"
+            echo "Token refreshed"
+          else
+            echo "Token refresh skipped"
+          fi

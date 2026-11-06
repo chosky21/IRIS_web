@@ -26,3 +26,10 @@ To preview locally: `python3 -m http.server` in this folder, then open http://lo
 ## Notes
 - Fonts load from Google Fonts. Earth imagery: NASA (public domain).
 - The language choice is remembered in the browser (localStorage).
+
+## Lab News (Instagram / LinkedIn)
+
+- Instagram posts are pulled automatically every day by `.github/workflows/instagram-sync.yml`
+  (script: `scripts/fetch_instagram.py`, output: `js/ig-posts.js` + `assets/news/`).
+  One-time setup (token + GitHub Secret): see **SETUP-INSTAGRAM.md**.
+- LinkedIn posts: add them by hand in `js/posts.js`.
