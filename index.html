@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IRIS Lab · UNIST</title>
+<meta name="description" content="IRIS Lab (Intelligent Remote sensing and geospatial Information Science), UNIST. Remote sensing, GIS and AI for understanding the Earth.">
+<link rel="icon" href="assets/img/favicon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="top" id="top">
+  <div class="bar">
+    <a class="brand" href="#research" aria-label="IRIS Lab home">
+      <span data-emb></span>
+      <img class="wordmark" data-wm alt="IRIS Lab: Intelligent Remote sensing and geospatial Information Science">
+    </a>
+    <a class="unist" href="https://www.unist.ac.kr" target="_blank" rel="noopener" aria-label="UNIST"><img data-unist alt="UNIST"></a>
+    <nav class="nav" aria-label="Main" id="nav">
+      <a href="#research" data-r="research" data-i="nav.research"></a>
+      <a href="#people" data-r="people" data-i="nav.people"></a>
+      <a href="#news" data-r="news" data-i="nav.news"></a>
+      <a href="#publications" data-r="publications" data-i="nav.pubs"></a>
+      <a href="#join" data-r="join" data-i="nav.join"></a>
+      <a class="ext" href="https://iris-unist.notion.site/IRIS-Lab-UNIST-Data-Code-3270dcc2040380a381e8d6ade8874c2b" target="_blank" rel="noopener" data-i="nav.data"></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="ko" id="l-ko">한국어</button><i>/</i>
+      <button type="button" data-lang="en" id="l-en">English</button><i>/</i>
+      <button type="button" data-lang="zh" id="l-zh">中文</button>
+    </div>
+    <button type="button" class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 9h20M5 15h20M5 21h20"/></svg></button>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="wrap">
+    <h3 data-i="foot.h"></h3>
+    <div class="grid">
+      <div class="seal" aria-hidden="true" data-emb></div>
+      <div><div data-i="foot.dept"></div><div data-i="foot.addr"></div><div style="margin-top:.6rem">ersgis@unist.ac.kr<br>+82 52 217 2887</div></div>
+      <nav aria-label="Footer"><a href="#research" data-i="nav.research"></a><a href="#news" data-i="nav.news"></a><a href="#people" data-i="nav.people"></a></nav>
+      <nav aria-label="Footer 2"><a href="#publications" data-i="nav.pubs"></a><a href="#join" data-i="nav.join"></a><a href="https://iris-unist.notion.site/IRIS-Lab-UNIST-Data-Code-3270dcc2040380a381e8d6ade8874c2b" target="_blank" rel="noopener" data-i="nav.data"></a><div class="social line" id="foot-social"></div></nav>
+    </div>
+    <div class="copy-line">© IRIS Lab, UNIST · Department of Civil, Urban, Earth and Environmental Engineering</div>
+    <div class="photo-credit">Earth imagery: NASA (public domain)</div>
+  </div>
+</footer>
+<script src="js/app.js"></script>
+</body>
+</html>
